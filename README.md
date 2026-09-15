@@ -78,7 +78,7 @@ This project can be run directly through **Visual Studio Code** using the Java E
 
    **[Main.java](src/main/java/com/warehouse/Main.java)**
 
-4. Click the **Run ▶** button displayed by VS Code above the `main()` method.
+4. Click the **Run ▶** button displayed by VS Code above the `main()` method and click run java.
 
 5. The Java extension will compile the required project classes and launch the console application.
 
