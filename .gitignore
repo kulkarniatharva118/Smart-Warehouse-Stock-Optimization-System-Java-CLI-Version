@@ -1,0 +1,22 @@
+# Maven build and generated reports
+target/
+reports/
+
+# Embedded H2 runtime files
+data/*.mv.db
+data/*.trace.db
+
+# IDE configuration
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+
+# Operating system and temporary files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
