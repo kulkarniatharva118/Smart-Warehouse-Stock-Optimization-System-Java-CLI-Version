@@ -64,7 +64,103 @@ mvnw.cmd exec:java
 ./mvnw clean test
 ./mvnw exec:java
 ```
-We can run the project by running the Main.java file
+## Running the Project
+
+This project can be run directly through **Visual Studio Code** using the Java Extension Pack. The project does not require the evaluator to run `mvnw.cmd exec:java` to launch the application.
+
+### Option 1 — Run Directly from VS Code (Recommended for Evaluation)
+
+1. Open the project folder in **Visual Studio Code**.
+
+2. Make sure **JDK 25** is installed.
+
+3. Open the main application file:
+
+   **[Main.java](src/main/java/com/warehouse/Main.java)**
+
+4. Click the **Run ▶** button displayed by VS Code above the `main()` method.
+
+5. The Java extension will compile the required project classes and launch the console application.
+
+The application starts with the following main menu:
+
+```text
+SMART WAREHOUSE STOCK OPTIMIZATION SYSTEM
+
+1. Product Management
+2. Inventory Management
+3. Supplier Management
+4. Stock Transactions & History
+5. Smart Reorder Recommendations
+6. Warehouse Analytics
+7. Generate Reports
+8. START Background Stock Monitor
+9. View Detailed Transaction History
+0. Exit Application
+```
+
+> **Evaluator note:** The recommended evaluation method is to open [`Main.java`](src/main/java/com/warehouse/Main.java) and use the VS Code **Run** button. Maven Wrapper commands are also provided for automated testing and project builds.
+
+### Option 2 — Maven Wrapper
+
+For running the complete Maven project from the terminal:
+
+**Windows:**
+
+```cmd
+mvnw.cmd clean test
+mvnw.cmd exec:java
+```
+
+**Linux/macOS:**
+
+```bash
+./mvnw clean test
+./mvnw exec:java
+```
+
+### Running Tests
+
+The project contains **23 JUnit 5 tests** covering product management, inventory operations, suppliers, reorder recommendations, analytics, reporting, concurrency, exception handling, and transaction safety.
+
+**Windows:**
+
+```cmd
+mvnw.cmd clean test
+```
+
+**Linux/macOS:**
+
+```bash
+./mvnw clean test
+```
+
+A successful test execution should report:
+
+```text
+Tests run: 23, Failures: 0, Errors: 0
+BUILD SUCCESS
+```
+
+### Database
+
+The application uses an **embedded H2 database** and does not require PostgreSQL, MySQL, or any external database server.
+
+The local database is automatically created under:
+
+```text
+data/
+```
+
+On first execution, the application creates the required database schema and sample warehouse data automatically.
+
+### Requirements
+
+* **Java JDK 25**
+* **Visual Studio Code** with Extension Pack for Java *(for VS Code execution)*
+* Maven is not required to manually launch the application through the VS Code Run button, but the included Maven Wrapper can be used for testing and project builds.
+
+
 ## Database behavior
 
 The application uses the persistent H2 local-file URL `jdbc:h2:file:./data/warehouse;DB_CLOSE_DELAY=-1`. Startup creates `./data`, creates the schema, and seeds sample data only if the product table is empty. Later application runs reuse `data/warehouse.mv.db`. Tests use unique in-memory H2 databases only for isolation.
