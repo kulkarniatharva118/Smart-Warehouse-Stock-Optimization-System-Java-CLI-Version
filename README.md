@@ -64,7 +64,7 @@ mvnw.cmd exec:java
 ./mvnw clean test
 ./mvnw exec:java
 ```
-
+We can run the project by running the Main.java file
 ## Database behavior
 
 The application uses the persistent H2 local-file URL `jdbc:h2:file:./data/warehouse;DB_CLOSE_DELAY=-1`. Startup creates `./data`, creates the schema, and seeds sample data only if the product table is empty. Later application runs reuse `data/warehouse.mv.db`. Tests use unique in-memory H2 databases only for isolation.
